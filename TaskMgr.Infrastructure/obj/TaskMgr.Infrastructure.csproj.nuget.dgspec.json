@@ -1,0 +1,190 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/TaskMgr.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/TaskMgr.Domain.csproj",
+        "projectName": "TaskMgr.Domain",
+        "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/TaskMgr.Domain.csproj",
+        "packagesPath": "/Users/alexandr/.nuget/packages/",
+        "outputPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/alexandr/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj",
+        "projectName": "TaskMgr.Infrastructure",
+        "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj",
+        "packagesPath": "/Users/alexandr/.nuget/packages/",
+        "outputPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/alexandr/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/TaskMgr.Service.csproj": {
+                "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/TaskMgr.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/TaskMgr.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/TaskMgr.Service.csproj",
+        "projectName": "TaskMgr.Service",
+        "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/TaskMgr.Service.csproj",
+        "packagesPath": "/Users/alexandr/.nuget/packages/",
+        "outputPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/alexandr/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/TaskMgr.Domain.csproj": {
+                "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/TaskMgr.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
