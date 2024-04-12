@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DvepnC9utOP8IHo1WN0KMVLV+TIbaUKHOSeVcd4rgFfkcfYt6E4uyVHVk3XHJhZ7CUqTXOoXLaLSQhOqFzvOcg==",
+  "dgSpecHash": "BZZ/0NAAZQjVby/RX3zaV8soZOgPn2dUXwla+mjBke2uKA9gdctiwSgMZz7Ju/B5o4yE1D0wXeqWp0xwqebAFA==",
   "success": true,
-  "projectFilePath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj",
+  "projectFilePath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/TaskMgr.Application.csproj",
   "expectedPackageFiles": [
     "/Users/alexandr/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",

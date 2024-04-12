@@ -241,22 +241,6 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "TaskMgr.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "MediatR": "12.2.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
-          "Microsoft.EntityFrameworkCore": "7.0.17",
-          "TaskMgr.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TaskMgr.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TaskMgr.Application.dll": {}
-        }
-      },
       "TaskMgr.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -626,11 +610,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "TaskMgr.Application/1.0.0": {
-      "type": "project",
-      "path": "../TaskMgr.Application/TaskMgr.Application.csproj",
-      "msbuildProject": "../TaskMgr.Application/TaskMgr.Application.csproj"
-    },
     "TaskMgr.Domain/1.0.0": {
       "type": "project",
       "path": "../TaskMgr.Domain/TaskMgr.Domain.csproj",
@@ -639,8 +618,10 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "MediatR >= 12.2.0",
+      "MediatR.Extensions.Microsoft.DependencyInjection >= 11.1.0",
       "Microsoft.EntityFrameworkCore >= 7.0.17",
-      "TaskMgr.Application >= 1.0.0"
+      "TaskMgr.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -649,11 +630,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj",
-      "projectName": "TaskMgr.Infrastructure",
-      "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj",
+      "projectUniqueName": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/TaskMgr.Application.csproj",
+      "projectName": "TaskMgr.Application",
+      "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/TaskMgr.Application.csproj",
       "packagesPath": "/Users/alexandr/.nuget/packages/",
-      "outputPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/obj/",
+      "outputPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/alexandr/.nuget/NuGet/NuGet.Config"
@@ -669,8 +650,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/TaskMgr.Application.csproj": {
-              "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/TaskMgr.Application.csproj"
+            "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/TaskMgr.Domain.csproj": {
+              "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/TaskMgr.Domain.csproj"
             }
           }
         }
@@ -685,6 +666,14 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "MediatR": {
+            "target": "Package",
+            "version": "[12.2.0, )"
+          },
+          "MediatR.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[11.1.0, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.17, )"

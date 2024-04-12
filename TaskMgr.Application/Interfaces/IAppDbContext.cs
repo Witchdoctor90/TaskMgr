@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using TaskMgr.Application.Interfaces;
 using TaskMgr.Domain.Entities;
 
-namespace TaskMgr.Infrastructure;
+namespace TaskMgr.Application.Interfaces;
 
-public class AppDbContext : DbContext, IAppDbContext
+public interface IAppDbContext
 {
     public DbSet<Target> Targets { get; set; }
     public DbSet<TaskEntity> Tasks { get; set; }
@@ -12,7 +11,5 @@ public class AppDbContext : DbContext, IAppDbContext
     public DbSet<Tag> Tags { get; set; }
     public DbSet<Category> Categories { get; set; }
 
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-    { }
-    
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

@@ -1,6 +1,8 @@
-namespace TaskMgr.Service;
+using TaskMgr.Domain.Entities.Abstract;
 
-public interface IBaseRepository<T>
+namespace TaskMgr.Application.Interfaces;
+
+public interface IBaseRepository<T> where T : BaseEntity
 {
     public Task<T> GetById(Guid guid);
     public Task<IEnumerable<T>> GetAll();
