@@ -18,8 +18,4 @@
       <ProjectReference Include="..\TaskMgr.Domain\TaskMgr.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Targets\Queries\" />
-    </ItemGroup>
-
 </Project>
