@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DvepnC9utOP8IHo1WN0KMVLV+TIbaUKHOSeVcd4rgFfkcfYt6E4uyVHVk3XHJhZ7CUqTXOoXLaLSQhOqFzvOcg==",
+  "dgSpecHash": "+Szw4CTE2ENmNboucTEJ8/QzKO7pZVz1dmR2wUm5GlKKtvXrqRYxXNg3B0JbCUgIYDaKAVKWjdJVD4Ai8e1dxQ==",
   "success": true,
   "projectFilePath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/Users/alexandr/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.1.0/mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
