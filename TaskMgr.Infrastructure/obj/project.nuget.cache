@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rkoiL3L46ADRaZsBrNGmUA2ijL2R8CHPBcuf1bXjc0B2Vn/m6gdbuH0gYfltGM/k73Yo8grCBjL8An6pjRqyeg==",
+  "dgSpecHash": "+Szw4CTE2ENmNboucTEJ8/QzKO7pZVz1dmR2wUm5GlKKtvXrqRYxXNg3B0JbCUgIYDaKAVKWjdJVD4Ai8e1dxQ==",
   "success": true,
   "projectFilePath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Infrastructure/TaskMgr.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/Users/alexandr/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/alexandr/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.1.0/mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/microsoft.entityframeworkcore/7.0.17/microsoft.entityframeworkcore.7.0.17.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.17/microsoft.entityframeworkcore.abstractions.7.0.17.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.17/microsoft.entityframeworkcore.analyzers.7.0.17.nupkg.sha512",
@@ -18,5 +20,16 @@
     "/Users/alexandr/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/Users/alexandr/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.2.0 was resolved.",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "AutoMapper/13.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MediatR/12.2.0": {
         "type": "package",
         "dependencies": {
@@ -30,6 +46,19 @@
           "lib/netstandard2.0/MediatR.Contracts.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjection/11.1.0": {
+        "type": "package",
+        "dependencies": {
+          "MediatR": "[11.0.0, 12.0.0)",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/7.0.17": {
@@ -228,6 +257,23 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "TaskMgr.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "MediatR": "12.2.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
+          "Microsoft.EntityFrameworkCore": "7.0.17",
+          "TaskMgr.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TaskMgr.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TaskMgr.Application.dll": {}
+        }
+      },
       "TaskMgr.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -237,24 +283,25 @@
         "runtime": {
           "bin/placeholder/TaskMgr.Domain.dll": {}
         }
-      },
-      "TaskMgr.Service/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "MediatR": "12.2.0",
-          "TaskMgr.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TaskMgr.Service.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TaskMgr.Service.dll": {}
-        }
       }
     }
   },
   "libraries": {
+    "AutoMapper/13.0.1": {
+      "sha512": "/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
+      "type": "package",
+      "path": "automapper/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.13.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/net6.0/AutoMapper.dll",
+        "lib/net6.0/AutoMapper.xml"
+      ]
+    },
     "MediatR/12.2.0": {
       "sha512": "8TUFrHapKi6D74PhnSNEguRsH91HNGyP3R4ZQdgDorJgl9Wac5Prh0vA33QfrniAaS6L2xNNhc6vxzg+5AIbwA==",
       "type": "package",
@@ -283,6 +330,19 @@
         "lib/netstandard2.0/MediatR.Contracts.xml",
         "mediatr.contracts.2.0.1.nupkg.sha512",
         "mediatr.contracts.nuspec"
+      ]
+    },
+    "MediatR.Extensions.Microsoft.DependencyInjection/11.1.0": {
+      "sha512": "RW3etRuy6Xp63cgqfC0r/ITOtUT0f9ymJl1+1XZdzsYUsfv7WBPC2kXGOP8IYpY/6c4Q6805vbIW/88DopUs3w==",
+      "type": "package",
+      "path": "mediatr.extensions.microsoft.dependencyinjection/11.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll",
+        "mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+        "mediatr.extensions.microsoft.dependencyinjection.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore/7.0.17": {
@@ -598,21 +658,21 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "TaskMgr.Application/1.0.0": {
+      "type": "project",
+      "path": "../TaskMgr.Application/TaskMgr.Application.csproj",
+      "msbuildProject": "../TaskMgr.Application/TaskMgr.Application.csproj"
+    },
     "TaskMgr.Domain/1.0.0": {
       "type": "project",
       "path": "../TaskMgr.Domain/TaskMgr.Domain.csproj",
       "msbuildProject": "../TaskMgr.Domain/TaskMgr.Domain.csproj"
-    },
-    "TaskMgr.Service/1.0.0": {
-      "type": "project",
-      "path": "../TaskMgr.Service/TaskMgr.Service.csproj",
-      "msbuildProject": "../TaskMgr.Service/TaskMgr.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.EntityFrameworkCore >= 7.0.17",
-      "TaskMgr.Service >= 1.0.0"
+      "TaskMgr.Application >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -641,8 +701,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/TaskMgr.Service.csproj": {
-              "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Service/TaskMgr.Service.csproj"
+            "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/TaskMgr.Application.csproj": {
+              "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.Application/TaskMgr.Application.csproj"
             }
           }
         }
@@ -681,5 +741,17 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.2.0 was resolved.",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

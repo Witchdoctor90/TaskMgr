@@ -9,4 +9,5 @@ public abstract class BaseTaskEntity : BaseEntity
     public DateTime? DeletedAt { get; set; }
     public DateTime StartTime { get; set; }
     public Status Status { get; set; } = Status.Created;
+    public List<Tag> Tags { get; set; } = new List<Tag>();
 }
