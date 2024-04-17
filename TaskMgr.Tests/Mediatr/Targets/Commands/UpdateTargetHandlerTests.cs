@@ -14,14 +14,14 @@ public class UpdateTargetHandlerTests : TestCommandBase
     {
         //Arrange
         var handler = new UpdateTargetHandler(_context);
-        var newTitle = "Updated Title";
+        var newTitle = "Updated Titel";
         var newContent = "Updated Content";
         var newTags = new List<Tag>()
         {
             new Tag()
             {
                 Id = Guid.NewGuid(),
-                Title = "Tag"
+                Title = "Tag1"
             }
         };
         var entity = await _context.Targets.FirstOrDefaultAsync(t => t.Id == TargetsContextFactory.TargetIdForUpdate);

@@ -21,6 +21,7 @@ public class UpdateTargetHandler : IRequestHandler<UpdateTargetCommand, Guid>
         
         entity.Title = request.Title;
         entity.Content = request.Content;
+        entity.Tags = request.Tags;
         await _context.SaveChangesAsync(cancellationToken);
         return entity.Id;
     }
