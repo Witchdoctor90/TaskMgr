@@ -18,4 +18,9 @@
       <ProjectReference Include="..\TaskMgr.Domain\TaskMgr.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Categories\Queries\" />
+      <Folder Include="Tags\" />
+    </ItemGroup>
+
 </Project>

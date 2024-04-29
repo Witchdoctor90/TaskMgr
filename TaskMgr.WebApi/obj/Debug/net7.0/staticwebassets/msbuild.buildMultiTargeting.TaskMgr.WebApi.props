@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/TaskMgr.WebApi.props" />
+</Project>
