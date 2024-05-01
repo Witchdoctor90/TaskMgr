@@ -1,0 +1,12 @@
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/bin/Debug/net7.0/TaskMgr.Domain.deps.json
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/bin/Debug/net7.0/TaskMgr.Domain.dll
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/bin/Debug/net7.0/TaskMgr.Domain.pdb
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.csproj.AssemblyReference.cache
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.AssemblyInfoInputs.cache
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.AssemblyInfo.cs
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.csproj.CoreCompileInputs.cache
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.dll
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/refint/TaskMgr.Domain.dll
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.pdb
+/Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/ref/TaskMgr.Domain.dll
