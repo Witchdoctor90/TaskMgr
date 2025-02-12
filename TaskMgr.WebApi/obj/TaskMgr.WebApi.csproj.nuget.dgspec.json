@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alexandr/Desktop/TaskMgr/TaskMgr.WebApi/TaskMgr.WebApi.csproj": {}
+    "C:\\Users\\Alexandr\\RiderProjects\\TaskMgr\\TaskMgr.WebApi\\TaskMgr.WebApi.csproj": {}
   },
   "projects": {
-    "/Users/alexandr/Desktop/TaskMgr/TaskMgr.WebApi/TaskMgr.WebApi.csproj": {
+    "C:\\Users\\Alexandr\\RiderProjects\\TaskMgr\\TaskMgr.WebApi\\TaskMgr.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.WebApi/TaskMgr.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Alexandr\\RiderProjects\\TaskMgr\\TaskMgr.WebApi\\TaskMgr.WebApi.csproj",
         "projectName": "TaskMgr.WebApi",
-        "projectPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.WebApi/TaskMgr.WebApi.csproj",
-        "packagesPath": "/Users/alexandr/.nuget/packages/",
-        "outputPath": "/Users/alexandr/Desktop/TaskMgr/TaskMgr.WebApi/obj/",
+        "projectPath": "C:\\Users\\Alexandr\\RiderProjects\\TaskMgr\\TaskMgr.WebApi\\TaskMgr.WebApi.csproj",
+        "packagesPath": "C:\\Users\\Alexandr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alexandr\\RiderProjects\\TaskMgr\\TaskMgr.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/alexandr/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Alexandr\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net7.0": {
@@ -59,6 +64,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Alexandr\\.dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
