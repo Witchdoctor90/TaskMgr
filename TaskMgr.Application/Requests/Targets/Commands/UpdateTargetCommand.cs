@@ -27,6 +27,10 @@ public class UpdateCommandHandler : IRequestHandler<UpdateTargetCommand, TargetE
 
     public async Task<TargetEntity> Handle(UpdateTargetCommand request, CancellationToken cancellationToken)
     {
+        var entity = await _repository.GetByIdAsync(request.Target.Id);
+        
+        if(entity?.UserId != request.UserId) throw new UnauthorizedAccessException();
+        
         return await _repository.UpdateAsync(request.Target);
     }
 }

@@ -22,11 +22,13 @@ public class GetRoutineByIdQueryHandler : IRequestHandler<GetRoutineByIdQuery, R
 
     public GetRoutineByIdQueryHandler(IRepository<RoutineEntity> repository)
     {
-        this._repository = repository;
+        _repository = repository;
     }
 
     public async Task<RoutineEntity?> Handle(GetRoutineByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _repository.GetByIdAsync(request.RoutineId);
+        var result = await _repository.GetByIdAsync(request.RoutineId);
+        if(result?.UserId != request.UserId) throw new UnauthorizedAccessException();
+        return result;
     }
 }
