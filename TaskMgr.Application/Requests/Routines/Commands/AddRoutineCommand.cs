@@ -31,7 +31,7 @@ public class AddRoutineCommandHandler : IRequestHandler<AddRoutineCommand, Routi
     {
         var routine = new RoutineEntity(request.UserId, request.Title, request.Content);
         await _repository.AddAsync(routine);
-        await _repository.SaveChangesAsync();
+        await _repository.SaveChangesAsync(cancellationToken);
         return routine;
     }
 }

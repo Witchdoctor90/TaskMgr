@@ -11,5 +11,5 @@ public interface IRepository<TEntity> where TEntity : BaseEntity
     public Task<TEntity> AddAsync(TEntity entity);
     public Task<TEntity> UpdateAsync(TEntity entity);
     public Task<TEntity> DeleteAsync(object id);
-    public Task SaveChangesAsync();
+    public Task SaveChangesAsync(CancellationToken cancellationToken);
 }
