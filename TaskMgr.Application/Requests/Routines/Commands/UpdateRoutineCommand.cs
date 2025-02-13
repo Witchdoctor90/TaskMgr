@@ -25,6 +25,8 @@ public class UpdateRoutineCommandHandler : IRequestHandler<UpdateRoutineCommand,
 
     public async Task<RoutineEntity> Handle(UpdateRoutineCommand request, CancellationToken cancellationToken)
     {
+        //todo auth
+        
         return await repository.UpdateAsync(request.Routine);
     }
 }

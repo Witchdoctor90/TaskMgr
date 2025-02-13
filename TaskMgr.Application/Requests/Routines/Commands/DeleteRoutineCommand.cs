@@ -20,6 +20,8 @@ public class DeleteRoutineCommandHandler : IRequestHandler<DeleteRoutineCommand,
 
     public async Task<bool> Handle(DeleteRoutineCommand request, CancellationToken cancellationToken)
     {
+        //todo auth
+        
         await repository.DeleteAsync(request.Id);
         await repository.SaveChangesAsync(cancellationToken);
         return true;
