@@ -13,6 +13,5 @@ public class BaseTaskEntity : BaseEntity
     public string Content { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public TaskStatus Status { get; set; } = TaskStatus.Created;
-    public bool isDeleted { get; set; } = false;
     public User User { get; set; }
 }

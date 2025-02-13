@@ -5,10 +5,11 @@ namespace TaskMgr.Application.Interfaces;
 
 public interface IRepository<TEntity> where TEntity : BaseEntity
 {
-    public Task<TEntity?> GetById(object id);
-    public Task<IEnumerable<TEntity>> GetAll();
-    public Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
-    public Task<TEntity> Add(TEntity entity);
-    public Task<TEntity> Update(TEntity entity);
-    public Task<TEntity> Delete(object id);
+    public Task<TEntity?> GetByIdAsync(object id);
+    public Task<IEnumerable<TEntity>> GetAllAsync();
+    public Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
+    public Task<TEntity> AddAsync(TEntity entity);
+    public Task<TEntity> UpdateAsync(TEntity entity);
+    public Task<TEntity> DeleteAsync(object id);
+    public Task SaveChangesAsync();
 }
