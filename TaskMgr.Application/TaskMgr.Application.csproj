@@ -21,6 +21,8 @@
     <ItemGroup>
       <Folder Include="Requests\Targets\Commands\" />
       <Folder Include="Requests\Targets\Queries\" />
+      <Folder Include="Requests\Tasks\Commands\" />
+      <Folder Include="Requests\Tasks\Queries\" />
     </ItemGroup>
 
 </Project>
