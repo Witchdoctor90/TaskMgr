@@ -12,7 +12,7 @@ public class AddRoutineCommand : IRequest<RoutineEntity>
 
     public AddRoutineCommand(User user, string title, string content)
     {
-        this.User = user;
+        User = user;
         Title = title;
         Content = content;
     }
@@ -20,18 +20,18 @@ public class AddRoutineCommand : IRequest<RoutineEntity>
 
 public class AddRoutineCommandHandler : IRequestHandler<AddRoutineCommand, RoutineEntity>
 {
-    private readonly IRepository<RoutineEntity> repository;
+    private readonly IRepository<RoutineEntity> _repository;
 
     public AddRoutineCommandHandler(IRepository<RoutineEntity> repository)
     {
-        this.repository = repository;
+        this._repository = repository;
     }
 
     public async Task<RoutineEntity> Handle(AddRoutineCommand request, CancellationToken cancellationToken)
     {
         var routine = new RoutineEntity(request.User, request.Title, request.Content);
-        await repository.AddAsync(routine);
-        await repository.SaveChangesAsync();
+        await _repository.AddAsync(routine);
+        await _repository.SaveChangesAsync();
         return routine;
     }
 }
