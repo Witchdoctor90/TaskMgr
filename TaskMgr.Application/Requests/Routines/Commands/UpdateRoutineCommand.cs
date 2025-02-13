@@ -7,9 +7,11 @@ namespace TaskMgr.Application.Requests.Routines.Commands;
 public class UpdateRoutineCommand : IRequest<RoutineEntity>
 {
     public RoutineEntity Routine { get; set; }
+    public Guid UserId { get; set; }
 
-    public UpdateRoutineCommand(RoutineEntity routine)
+    public UpdateRoutineCommand(RoutineEntity routine, Guid userId)
     {
+        UserId = userId;
         Routine = routine;
     }
 }
@@ -25,7 +27,7 @@ public class UpdateRoutineCommandHandler : IRequestHandler<UpdateRoutineCommand,
 
     public async Task<RoutineEntity> Handle(UpdateRoutineCommand request, CancellationToken cancellationToken)
     {
-        //todo auth
+        if(request.Routine.UserId != request.UserId) throw new UnauthorizedAccessException();
         
         return await repository.UpdateAsync(request.Routine);
     }
