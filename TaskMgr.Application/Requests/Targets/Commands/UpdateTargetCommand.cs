@@ -1,4 +1,5 @@
 using MediatR;
+using TaskMgr.Application.Exceptions;
 using TaskMgr.Application.Interfaces;
 using TaskMgr.Domain.Entities;
 
@@ -27,9 +28,9 @@ public class UpdateCommandHandler : IRequestHandler<UpdateTargetCommand, TargetE
 
     public async Task<TargetEntity> Handle(UpdateTargetCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _repository.GetByIdAsync(request.Target.Id);
-        
-        if(entity?.UserId != request.UserId) throw new UnauthorizedAccessException();
+        if(request.Target.UserId != request.UserId) throw new UnauthorizedAccessException();
+        if(await _repository.GetByIdAsync(request.Target.Id) is null) 
+            throw new TaskEntityNotFoundException(request.Target.Id);
         
         return await _repository.UpdateAsync(request.Target);
     }

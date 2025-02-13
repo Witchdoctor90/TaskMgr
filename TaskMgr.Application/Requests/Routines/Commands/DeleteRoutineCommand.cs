@@ -1,5 +1,6 @@
 using System.Reflection.Metadata;
 using MediatR;
+using TaskMgr.Application.Exceptions;
 using TaskMgr.Application.Interfaces;
 using TaskMgr.Domain.Entities;
 
@@ -29,6 +30,7 @@ public class DeleteRoutineCommandHandler : IRequestHandler<DeleteRoutineCommand,
     public async Task<bool> Handle(DeleteRoutineCommand request, CancellationToken cancellationToken)
     {
         var entity = await _repository.GetByIdAsync(request.Id);
+        if (entity is null) throw new TaskEntityNotFoundException(request.Id);
         if(entity?.UserId != request.UserID) throw new UnauthorizedAccessException();
         
         

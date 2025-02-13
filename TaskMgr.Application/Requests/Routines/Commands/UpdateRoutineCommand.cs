@@ -1,4 +1,5 @@
 using MediatR;
+using TaskMgr.Application.Exceptions;
 using TaskMgr.Application.Interfaces;
 using TaskMgr.Domain.Entities;
 
@@ -18,17 +19,19 @@ public class UpdateRoutineCommand : IRequest<RoutineEntity>
 
 public class UpdateRoutineCommandHandler : IRequestHandler<UpdateRoutineCommand, RoutineEntity>
 {
-    private readonly IRepository<RoutineEntity> repository;
+    private readonly IRepository<RoutineEntity> _repository;
 
     public UpdateRoutineCommandHandler(IRepository<RoutineEntity> repository)
     {
-        this.repository = repository;
+        _repository = repository;
     }
 
     public async Task<RoutineEntity> Handle(UpdateRoutineCommand request, CancellationToken cancellationToken)
     {
         if(request.Routine.UserId != request.UserId) throw new UnauthorizedAccessException();
+        if (await _repository.GetByIdAsync(request.Routine.Id) is null)
+            throw new TaskEntityNotFoundException(request.Routine.Id);
         
-        return await repository.UpdateAsync(request.Routine);
+        return await _repository.UpdateAsync(request.Routine);
     }
 }
