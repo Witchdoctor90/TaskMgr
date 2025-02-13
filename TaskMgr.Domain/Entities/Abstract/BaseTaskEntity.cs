@@ -2,9 +2,9 @@ namespace TaskMgr.Domain.Entities.Abstract;
 
 public class BaseTaskEntity : BaseEntity
 {
-    protected BaseTaskEntity(User user, string title, string content)
+    protected BaseTaskEntity(Guid userId, string title, string content)
     {
-        User = user;
+        UserId = userId;
         Title = title;
         Content = content;
     }
@@ -13,5 +13,5 @@ public class BaseTaskEntity : BaseEntity
     public string Content { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public TaskStatus Status { get; set; } = TaskStatus.Created;
-    public User User { get; set; }
+    public Guid UserId { get; set; }
 }

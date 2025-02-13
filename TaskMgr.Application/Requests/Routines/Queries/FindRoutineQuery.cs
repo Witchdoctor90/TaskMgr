@@ -29,7 +29,7 @@ public class FindRoutineQueryHandler : IRequestHandler<FindRoutineQuery, IEnumer
     public async Task<IEnumerable<RoutineEntity>> Handle(FindRoutineQuery request, CancellationToken cancellationToken)
     {
         var result = await _repository.FindAsync(request.Predicate);
-        return result.Where(r => r.User.Id == request.UserId);
+        return result.Where(r => r.UserId == request.UserId);
     }
 }
 

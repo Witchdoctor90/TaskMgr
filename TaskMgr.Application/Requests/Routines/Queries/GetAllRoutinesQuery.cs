@@ -26,6 +26,6 @@ public class GetAllRoutinesQueryHandler : IRequestHandler<GetAllRoutinesQuery, I
     public async Task<IEnumerable<RoutineEntity>> Handle(GetAllRoutinesQuery request, CancellationToken cancellationToken)
     {
         return await _repository.FindAsync(r => 
-            r.User.Id == request.UserId);
+            r.UserId== request.UserId);
     }
 }

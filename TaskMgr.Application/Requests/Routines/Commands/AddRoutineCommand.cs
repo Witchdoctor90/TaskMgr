@@ -6,13 +6,13 @@ namespace TaskMgr.Application.Requests.Routines.Commands;
 
 public class AddRoutineCommand : IRequest<RoutineEntity>
 {
-    public User User { get; set; }
+    public Guid UserId { get; set; }
     public string Title { get; set; }
     public string Content { get; set; }
 
-    public AddRoutineCommand(User user, string title, string content)
+    public AddRoutineCommand(Guid userId, string title, string content)
     {
-        User = user;
+        UserId = userId;
         Title = title;
         Content = content;
     }
@@ -29,7 +29,7 @@ public class AddRoutineCommandHandler : IRequestHandler<AddRoutineCommand, Routi
 
     public async Task<RoutineEntity> Handle(AddRoutineCommand request, CancellationToken cancellationToken)
     {
-        var routine = new RoutineEntity(request.User, request.Title, request.Content);
+        var routine = new RoutineEntity(request.UserId, request.Title, request.Content);
         await _repository.AddAsync(routine);
         await _repository.SaveChangesAsync();
         return routine;

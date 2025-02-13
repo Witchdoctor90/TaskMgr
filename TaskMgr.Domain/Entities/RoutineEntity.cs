@@ -4,7 +4,7 @@ namespace TaskMgr.Domain.Entities;
 
 public class RoutineEntity : BaseTaskEntity
 {
-    public RoutineEntity(User user, string title, string content) : base(user, title, content)
+    public RoutineEntity(Guid userId, string title, string content) : base(userId, title, content)
     {
     }
 
