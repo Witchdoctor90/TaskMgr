@@ -24,7 +24,7 @@ public class AddRoutineCommandHandler : IRequestHandler<AddRoutineCommand, Routi
 
     public AddRoutineCommandHandler(IRepository<RoutineEntity> repository)
     {
-        this._repository = repository;
+        _repository = repository;
     }
 
     public async Task<RoutineEntity> Handle(AddRoutineCommand request, CancellationToken cancellationToken)
