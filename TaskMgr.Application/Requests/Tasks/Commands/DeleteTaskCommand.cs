@@ -1,4 +1,5 @@
 using MediatR;
+using TaskMgr.Application.Exceptions;
 using TaskMgr.Application.Interfaces;
 using TaskMgr.Domain.Entities;
 
@@ -28,7 +29,7 @@ public  class DeleteTaskCommandHandler : IRequestHandler<DeleteTaskCommand, Unit
     public async Task<Unit> Handle(DeleteTaskCommand request, CancellationToken cancellationToken)
     {
         var entity = await _repository.GetByIdAsync(request.TaskId);
-        if(entity == null) throw new NullReferenceException();
+        if(entity == null) throw new TaskEntityNotFoundException(request.TaskId);
         if(entity.UserId != request.UserId) throw new UnauthorizedAccessException();
         
         await _repository.DeleteAsync(entity);

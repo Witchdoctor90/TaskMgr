@@ -1,4 +1,5 @@
 using MediatR;
+using TaskMgr.Application.Exceptions;
 using TaskMgr.Application.Interfaces;
 using TaskMgr.Domain.Entities;
 
@@ -29,6 +30,7 @@ public class DeleteTargetCommandHandler : IRequestHandler<DeleteTargetCommand, U
     {
         var entity = await _repository.GetByIdAsync(request.TargetId);
         if(entity?.UserId != request.UserId) throw new UnauthorizedAccessException();
+        if (entity is null) throw new TaskEntityNotFoundException(request.TargetId);
         
         await _repository.DeleteAsync(entity);
         await _repository.SaveChangesAsync(cancellationToken);
