@@ -1,4 +1,5 @@
 using MediatR;
+using TaskMgr.Application.Exceptions;
 using TaskMgr.Application.Interfaces;
 using TaskMgr.Domain.Entities;
 
@@ -6,14 +7,14 @@ namespace TaskMgr.Application.Requests.Routines.Queries;
 
 public class GetRoutineByIdQuery : IRequest<RoutineEntity>
 {
-    public Guid UserId { get; set; }
-    public Guid RoutineId { get; set; }
-
     public GetRoutineByIdQuery(Guid userId, Guid routineId)
     {
         UserId = userId;
         RoutineId = routineId;
     }
+
+    public Guid UserId { get; set; }
+    public Guid RoutineId { get; set; }
 }
 
 public class GetRoutineByIdQueryHandler : IRequestHandler<GetRoutineByIdQuery, RoutineEntity>
@@ -22,11 +23,14 @@ public class GetRoutineByIdQueryHandler : IRequestHandler<GetRoutineByIdQuery, R
 
     public GetRoutineByIdQueryHandler(IRepository<RoutineEntity> repository)
     {
-        this._repository = repository;
+        _repository = repository;
     }
 
     public async Task<RoutineEntity?> Handle(GetRoutineByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _repository.GetByIdAsync(request.RoutineId);
+        var result = await _repository.GetByIdAsync(request.RoutineId);
+        if (result is null) throw new TaskEntityNotFoundException(request.RoutineId);
+        if (result?.UserId != request.UserId) throw new UnauthorizedAccessException();
+        return result;
     }
 }

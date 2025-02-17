@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NSdWxuQSagE=",
+  "dgSpecHash": "2OH9sGJgpxE=",
   "success": true,
   "projectFilePath": "C:\\Users\\Alexandr\\RiderProjects\\TaskMgr\\TaskMgr.Domain\\TaskMgr.Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Alexandr\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\Alexandr\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\Alexandr\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

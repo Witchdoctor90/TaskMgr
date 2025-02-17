@@ -1,0 +1,29 @@
+# Ignore DLLs and PDBs
+*.dll
+*.pdb
+
+# NuGet files
+project.assets.json
+project.nuget.cache
+project.packagespec.json
+
+# MSBuild and Rider files
+msbuild.*
+rider.*
+
+# Project configuration files
+*.csproj.*
+*.sln.*
+*.genruntimeconfig.cache
+
+# Localized resource files
+*.resources.dll
+
+# Other specific files
+MockRepository.cs
+RoutineEntity.cs
+TaskMgr.Application.*
+TaskMgr.Domain.*
+TaskMgr.Infrastructure.*
+TaskMgr.Tests.*
+TaskMgr.WebApi.*
