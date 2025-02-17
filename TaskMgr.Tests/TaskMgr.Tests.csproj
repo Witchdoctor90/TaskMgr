@@ -32,8 +32,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application\Cqrs\Targets\Commands\" />
-      <Folder Include="Application\Cqrs\Targets\Queries\" />
       <Folder Include="Application\Cqrs\Tasks\Commands\" />
       <Folder Include="Application\Cqrs\Tasks\Queries\" />
     </ItemGroup>
