@@ -18,11 +18,11 @@ public class AddTargetCommand : IRequest<TargetEntity>
     }
 }
 
-public class AddTargetCommmandHandler : IRequestHandler<AddTargetCommand, TargetEntity>
+public class AddTargetCommandHandler : IRequestHandler<AddTargetCommand, TargetEntity>
 {
     private readonly IRepository<TargetEntity> _repository;
 
-    public AddTargetCommmandHandler(IRepository<TargetEntity> repository)
+    public AddTargetCommandHandler(IRepository<TargetEntity> repository)
     {
         _repository = repository; 
     }

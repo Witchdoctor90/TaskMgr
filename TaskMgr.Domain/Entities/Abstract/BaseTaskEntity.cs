@@ -2,6 +2,9 @@ namespace TaskMgr.Domain.Entities.Abstract;
 
 public class BaseTaskEntity : BaseEntity
 {
+    public BaseTaskEntity()
+    {
+    }
     protected BaseTaskEntity(Guid userId, string title, string content)
     {
         UserId = userId;

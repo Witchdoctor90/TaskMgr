@@ -10,3 +10,14 @@
 /Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/refint/TaskMgr.Domain.dll
 /Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.pdb
 /Users/alexandr/Desktop/TaskMgr/TaskMgr.Domain/obj/Debug/net7.0/ref/TaskMgr.Domain.dll
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\bin\Debug\net7.0\TaskMgr.Domain.deps.json
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\bin\Debug\net7.0\TaskMgr.Domain.dll
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\bin\Debug\net7.0\TaskMgr.Domain.pdb
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\TaskMgr.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\TaskMgr.Domain.AssemblyInfoInputs.cache
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\TaskMgr.Domain.AssemblyInfo.cs
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\TaskMgr.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\TaskMgr.Domain.dll
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\refint\TaskMgr.Domain.dll
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\TaskMgr.Domain.pdb
+C:\Users\Alexandr\RiderProjects\TaskMgr\TaskMgr.Domain\obj\Debug\net7.0\ref\TaskMgr.Domain.dll

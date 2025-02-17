@@ -32,7 +32,7 @@ public class DeleteTargetCommandHandler : IRequestHandler<DeleteTargetCommand, U
         if(entity?.UserId != request.UserId) throw new UnauthorizedAccessException();
         if (entity is null) throw new TaskEntityNotFoundException(request.TargetId);
         
-        await _repository.DeleteAsync(entity);
+        await _repository.DeleteAsync(entity.Id);
         await _repository.SaveChangesAsync(cancellationToken);
         return Unit.Value;
     }

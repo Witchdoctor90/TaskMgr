@@ -1,0 +1,105 @@
+using FluentAssertions;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Moq;
+using NUnit.Framework;
+using TaskMgr.Application.Exceptions;
+using TaskMgr.Application.Interfaces;
+using TaskMgr.Application.Requests.Routines.Commands;
+using TaskMgr.Domain.Entities;
+using TaskMgr.Tests.Application.Mocks;
+
+namespace TaskMgr.Tests.Application.Cqrs.Routines.Commands;
+
+[TestFixture]
+public class UpdateRoutineCommandHandlerTests
+{
+    private IMediator _mediator;
+    private Mock<IRepository<RoutineEntity>> _repositoryMock;
+    private IServiceCollection _services;
+
+    [SetUp]
+    public void Setup()
+    {
+        _services = new ServiceCollection();
+        _repositoryMock = new Mock<IRepository<RoutineEntity>>();
+
+        var serviceProvider = _services
+            .AddScoped<IRepository<RoutineEntity>>(_ => _repositoryMock.Object)
+            .AddMediatR(typeof(UpdateRoutineCommandHandler))
+            .BuildServiceProvider();
+        
+        _mediator = serviceProvider.GetRequiredService<IMediator>();
+        _repositoryMock.Setup(r
+                => r.GetByIdAsync(It.IsAny<Guid>()))
+            .ReturnsAsync((Guid id) =>
+            {
+                return MockDatabase<RoutineEntity>.Tasks.FirstOrDefault(r => r.Id == id);
+            })
+            .Verifiable();
+
+        _repositoryMock.Setup(r => r.UpdateAsync(It.IsAny<RoutineEntity>()))
+            .ReturnsAsync((RoutineEntity entity) => entity);
+    }
+    
+    [Test]
+    public async Task UpdateRoutineCommandHandler_SuccessWithValidParams()
+    {
+        // Arrange
+        var entity = MockDatabase<RoutineEntity>.objectToUpdate;
+        var updatedEntity = new RoutineEntity()
+        {
+            Id = entity.Id,
+            Title = "Updated Title",
+            Content = "This is Updated Content",
+            CreatedAt = entity.CreatedAt,
+            Status = entity.Status,
+            UserId = entity.UserId,
+        };
+        var command = new UpdateRoutineCommand(updatedEntity, entity.UserId);
+        // Act
+        var result = await _mediator.Send(command);
+        // Assert
+        result.Should().BeSameAs(updatedEntity);
+        _repositoryMock.Verify(r 
+            => r.UpdateAsync(updatedEntity), Times.Once);
+    }
+    
+    [Test]
+    public async Task UpdateRoutineCommandHandler_ThrowsUnauthorizedWhenUserIdIsInvalid()
+    {
+        // Arrange
+        var entity = MockDatabase<RoutineEntity>.objectToUpdate;
+        var updatedEntity = new RoutineEntity()
+        {
+            Id = entity.Id,
+            Title = "Updated Title",
+            Content = "This is Updated Content",
+            CreatedAt = entity.CreatedAt,
+            Status = entity.Status,
+            UserId = Guid.Empty,
+        };
+        var command = new UpdateRoutineCommand(updatedEntity, entity.UserId);
+        // Assert
+        Assert.ThrowsAsync<UnauthorizedAccessException>(async () => await _mediator.Send(command));
+    }
+    
+    [Test]
+    public async Task UpdateRoutineCommandHandler_ThrowsExceptionWhenEntityNotExists()
+    {
+        // Arrange
+        var entity = MockDatabase<RoutineEntity>.objectToUpdate;
+        var updatedEntity = new RoutineEntity()
+        {
+            Id = Guid.NewGuid(),
+            Title = "Updated Title",
+            Content = "This is Updated Content",
+            CreatedAt = entity.CreatedAt,
+            Status = entity.Status,
+            UserId = entity.UserId,
+        };
+        var command = new UpdateRoutineCommand(updatedEntity, entity.UserId);
+        // Assert
+        Assert.ThrowsAsync<TaskEntityNotFoundException>(async () => await _mediator.Send(command));
+    }
+}

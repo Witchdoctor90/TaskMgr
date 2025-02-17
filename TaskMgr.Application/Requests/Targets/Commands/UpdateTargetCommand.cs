@@ -17,11 +17,11 @@ public class UpdateTargetCommand : IRequest<TargetEntity>
     }
 }
 
-public class UpdateCommandHandler : IRequestHandler<UpdateTargetCommand, TargetEntity>
+public class UpdateTargetCommandHandler : IRequestHandler<UpdateTargetCommand, TargetEntity>
 {
     private readonly IRepository<TargetEntity> _repository;
 
-    public UpdateCommandHandler(IRepository<TargetEntity> repository)
+    public UpdateTargetCommandHandler(IRepository<TargetEntity> repository)
     {
         _repository = repository;
     }
