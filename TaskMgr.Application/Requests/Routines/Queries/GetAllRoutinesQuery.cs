@@ -6,12 +6,12 @@ namespace TaskMgr.Application.Requests.Routines.Queries;
 
 public class GetAllRoutinesQuery : IRequest<IEnumerable<RoutineEntity>>
 {
-    public Guid UserId { get; set; }
-
     public GetAllRoutinesQuery(Guid userId)
     {
         UserId = userId;
     }
+
+    public Guid UserId { get; set; }
 }
 
 public class GetAllRoutinesQueryHandler : IRequestHandler<GetAllRoutinesQuery, IEnumerable<RoutineEntity>>
@@ -23,9 +23,10 @@ public class GetAllRoutinesQueryHandler : IRequestHandler<GetAllRoutinesQuery, I
         _repository = repository;
     }
 
-    public async Task<IEnumerable<RoutineEntity>> Handle(GetAllRoutinesQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<RoutineEntity>> Handle(GetAllRoutinesQuery request,
+        CancellationToken cancellationToken)
     {
-        return await _repository.FindAsync(r => 
-            r.UserId== request.UserId);
+        return await _repository.FindAsync(r =>
+            r.UserId == request.UserId);
     }
 }

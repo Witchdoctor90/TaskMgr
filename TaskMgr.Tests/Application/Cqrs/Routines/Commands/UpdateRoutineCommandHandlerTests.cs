@@ -14,10 +14,6 @@ namespace TaskMgr.Tests.Application.Cqrs.Routines.Commands;
 [TestFixture]
 public class UpdateRoutineCommandHandlerTests
 {
-    private IMediator _mediator;
-    private Mock<IRepository<RoutineEntity>> _repositoryMock;
-    private IServiceCollection _services;
-
     [SetUp]
     public void Setup()
     {
@@ -28,20 +24,22 @@ public class UpdateRoutineCommandHandlerTests
             .AddScoped<IRepository<RoutineEntity>>(_ => _repositoryMock.Object)
             .AddMediatR(typeof(UpdateRoutineCommandHandler))
             .BuildServiceProvider();
-        
+
         _mediator = serviceProvider.GetRequiredService<IMediator>();
         _repositoryMock.Setup(r
                 => r.GetByIdAsync(It.IsAny<Guid>()))
-            .ReturnsAsync((Guid id) =>
-            {
-                return MockDatabase<RoutineEntity>.Tasks.FirstOrDefault(r => r.Id == id);
-            })
+            .ReturnsAsync((Guid id)
+                => MockDatabase<RoutineEntity>.Tasks.FirstOrDefault(r => r.Id == id))
             .Verifiable();
 
         _repositoryMock.Setup(r => r.UpdateAsync(It.IsAny<RoutineEntity>()))
             .ReturnsAsync((RoutineEntity entity) => entity);
     }
-    
+
+    private IMediator _mediator;
+    private Mock<IRepository<RoutineEntity>> _repositoryMock;
+    private IServiceCollection _services;
+
     [Test]
     public async Task UpdateRoutineCommandHandler_SuccessWithValidParams()
     {
@@ -61,10 +59,10 @@ public class UpdateRoutineCommandHandlerTests
         var result = await _mediator.Send(command);
         // Assert
         result.Should().BeSameAs(updatedEntity);
-        _repositoryMock.Verify(r 
+        _repositoryMock.Verify(r
             => r.UpdateAsync(updatedEntity), Times.Once);
     }
-    
+
     [Test]
     public async Task UpdateRoutineCommandHandler_ThrowsUnauthorizedWhenUserIdIsInvalid()
     {
@@ -83,7 +81,7 @@ public class UpdateRoutineCommandHandlerTests
         // Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(async () => await _mediator.Send(command));
     }
-    
+
     [Test]
     public async Task UpdateRoutineCommandHandler_ThrowsExceptionWhenEntityNotExists()
     {
