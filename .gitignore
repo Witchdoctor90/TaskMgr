@@ -1,3 +1,19 @@
+/TaskMgr.Application/obj/rider.project.model.nuget.info
+/TaskMgr.Domain/obj/rider.project.model.nuget.info
+/TaskMgr.Infrastructure/obj/rider.project.model.nuget.info
+/TaskMgr.Tests/obj/rider.project.model.nuget.info
+/TaskMgr.WebApi/obj/rider.project.model.nuget.info
+/TaskMgr.WebApi/obj/Debug/net7.0/staticwebassets.build.endpoints.json
+/TaskMgr.Application/obj/Debug/net7.0/TaskMgr..6C6A62F9.Up2Date
+/TaskMgr.Tests/obj/Debug/net7.0/TaskMgr..70EC4E8F.Up2Date
+/TaskMgr.Infrastructure/obj/Debug/net7.0/TaskMgr..2775BB34.Up2Date
+/TaskMgr.WebApi/obj/Debug/net7.0/TaskMgr..AD71BF40.Up2Date
+/TaskMgr.Application/obj/Debug/net7.0/TaskMgr.Application.sourcelink.json
+/TaskMgr.Domain/obj/Debug/net7.0/TaskMgr.Domain.sourcelink.json
+/TaskMgr.Infrastructure/obj/Debug/net7.0/TaskMgr.Infrastructure.sourcelink.json
+/TaskMgr.Tests/obj/Debug/net7.0/TaskMgr.Tests.sourcelink.json
+/TaskMgr.WebApi/obj/Debug/net7.0/TaskMgr.WebApi.sourcelink.json
+/TaskMgr.WebApi/bin/Debug/net7.0/TaskMgr.WebApi.staticwebassets.endpoints.json
 ### DotnetCore template
 # .NET Core build folders
 bin/
