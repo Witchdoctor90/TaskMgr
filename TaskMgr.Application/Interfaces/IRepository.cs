@@ -1,9 +1,8 @@
 using System.Linq.Expressions;
-using TaskMgr.Domain.Entities.Abstract;
 
 namespace TaskMgr.Application.Interfaces;
 
-public interface IRepository<TEntity> where TEntity : BaseEntity
+public interface IRepository<TEntity> where TEntity : class
 {
     public Task<TEntity?> GetByIdAsync(Guid id);
     public Task<IEnumerable<TEntity>> GetAllAsync(Guid userId);

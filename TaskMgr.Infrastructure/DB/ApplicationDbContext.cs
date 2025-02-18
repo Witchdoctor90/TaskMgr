@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TaskMgr.Domain.Entities;
+using TaskMgr.Infrastructure.Identity;
 
 namespace TaskMgr.Infrastructure.DB;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
