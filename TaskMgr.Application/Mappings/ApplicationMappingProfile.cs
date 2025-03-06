@@ -4,9 +4,9 @@ using TaskMgr.Domain.Entities.Abstract;
 
 namespace TaskMgr.Application.Mappings;
 
-public class MappingProfile : Profile
+public class ApplicationMappingProfile : Profile
 {
-    public MappingProfile()
+    public ApplicationMappingProfile()
     {
         CreateMap<BaseTaskEntity, BaseTaskDTO>().ReverseMap();
     }

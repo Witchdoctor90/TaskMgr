@@ -9,10 +9,10 @@ public class Repository<T> : IRepository<T> where T : class
     private readonly ApplicationDbContext _context;
     private readonly DbSet<T> _entities;
 
-    public Repository(ApplicationDbContext context, DbSet<T> entities)
+    public Repository(ApplicationDbContext context)
     {
         _context = context;
-        _entities = entities;
+        _entities = context.Set<T>();
     }
 
     public async Task<T?> GetByIdAsync(Guid id)

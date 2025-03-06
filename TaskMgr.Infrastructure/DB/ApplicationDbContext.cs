@@ -12,7 +12,12 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, 
     {
     }
 
-    public DbSet<Task> Tasks { get; set; }
+    public DbSet<TaskEntity> Tasks { get; set; }
     public DbSet<RoutineEntity> Routines { get; set; }
     public DbSet<TargetEntity> Targets { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+    }
 }
