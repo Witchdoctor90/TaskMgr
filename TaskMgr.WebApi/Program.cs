@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Diagnostics;
 using TaskMgr.Application;
 using TaskMgr.Application.Mappings;
 using TaskMgr.Infrastructure;
@@ -38,6 +39,8 @@ public class Program
 
 
         var app = builder.Build();
+
+        app.UseMiddleware<ExceptionHandlerMiddleware>();
 
         app.UseSwagger();
         app.UseSwaggerUI();
