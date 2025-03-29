@@ -28,7 +28,12 @@ public class UsersService : IUsersService
     public async Task<string> JWTLogin(string username, string password)
     {
         var user = await _userManager.FindByNameAsync(username);
-        if (user is null) throw new KeyNotFoundException("Invalid username or password");
+        if (user is null)
+            throw new KeyNotFoundException("Invalid username or password");
+
+        if (!await _userManager.CheckPasswordAsync(user, password))
+            throw new KeyNotFoundException("Invalid username or password");
+
         return _tokenService.GenerateToken(user);
     }
 }

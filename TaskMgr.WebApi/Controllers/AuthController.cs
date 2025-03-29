@@ -51,6 +51,8 @@ public class AuthController : Controller
         }
     }
 
+
+    //remove this
     [HttpGet]
     [Authorize]
     public async Task<IActionResult> GetUserInfo()

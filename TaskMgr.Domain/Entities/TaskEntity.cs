@@ -14,6 +14,6 @@ public class TaskEntity : BaseTaskEntity
 
     public DateTime Deadline { get; set; } = DateTime.Today;
     public TimeSpan? RemindEvery { get; set; } = null;
-    public RoutineEntity? RelatedRoutine { get; set; } = null;
-    public TargetEntity? RelatedTarget { get; set; } = null;
+    public Guid? RelatedRoutine { get; set; } = null;
+    public Guid? RelatedTarget { get; set; } = null;
 }

@@ -1,10 +1,12 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using TaskMgr.Application.Exceptions;
 using TaskMgr.Application.Interfaces;
+using TaskMgr.Domain.Entities.Abstract;
 
 namespace TaskMgr.Infrastructure.DB;
 
-public class Repository<T> : IRepository<T> where T : class
+public class Repository<T> : IRepository<T> where T : BaseEntity
 {
     private readonly ApplicationDbContext _context;
     private readonly DbSet<T> _entities;
@@ -38,8 +40,14 @@ public class Repository<T> : IRepository<T> where T : class
 
     public async Task<T> UpdateAsync(T entity)
     {
-        await Task.Run(() => _entities.Update(entity));
-        return entity;
+        var existingEntity = await _context.Set<T>().FindAsync(entity.Id);
+        if (existingEntity == null)
+            throw new TaskEntityNotFoundException($"Entity with ID {entity.Id} not found.");
+
+        _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+
+        await _context.SaveChangesAsync();
+        return existingEntity;
     }
 
     public async Task<bool> DeleteAsync(Guid id)
