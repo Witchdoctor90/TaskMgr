@@ -14,7 +14,10 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
         var services = builder.Services;
-        services.AddLogging(builder => builder.AddConsole());
+
+        services.AddLogging((lbuilder) => lbuilder
+            .SetMinimumLevel(LogLevel.Trace)
+            .AddConsole());
 
         services.AddApplication();
         services.AddAutoMapper(cfg =>
