@@ -40,7 +40,7 @@ public class Program
 
         var app = builder.Build();
 
-        app.UseMiddleware<ExceptionHandlerMiddleware>();
+        app.UseMiddleware<Middleware.ExceptionHandlingMiddleware>();
 
         app.UseSwagger();
         app.UseSwaggerUI();
