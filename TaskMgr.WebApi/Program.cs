@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.Extensions.Logging.AzureAppServices;
 using TaskMgr.Application;
 using TaskMgr.Application.Mappings;
 using TaskMgr.Infrastructure;
@@ -15,6 +16,15 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
         var services = builder.Services;
+        
+        builder.Logging.AddAzureWebAppDiagnostics();
+
+        builder.Services.Configure<AzureFileLoggerOptions>(options =>
+        {
+            options.FileName = "azure-diagnostics-";
+            options.FileSizeLimit = 50 * 1024; // 50KB
+            options.RetainedFileCountLimit = 5; // зберігати 5 файлів
+        });
 
         services.AddLogging((lbuilder) => lbuilder
             .SetMinimumLevel(LogLevel.Trace)
