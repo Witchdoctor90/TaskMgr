@@ -7,7 +7,14 @@ export const login = async (username, password) => {
     username,
     password,
   });
-  return response.data; // Повертаємо дані з відповіді
+  // Відповідно до openapi.json, токен може бути неявно в response.data (без поля token)
+  // Тому збережемо весь response.data як токен, якщо це рядок
+  if (typeof response.data === "string") {
+    localStorage.setItem('auth_token', response.data);
+  } else if (response.data && response.data.token) {
+    localStorage.setItem('auth_token', response.data.token);
+  }
+  return response.data;
 };
 
 export const register = async (username, password, email) => {
@@ -16,7 +23,13 @@ export const register = async (username, password, email) => {
     password,
     email,
   });
-  return response.data; // Повертаємо дані з відповіді
+  // Аналогічно для реєстрації
+  if (typeof response.data === "string") {
+    localStorage.setItem('auth_token', response.data);
+  } else if (response.data && response.data.token) {
+    localStorage.setItem('auth_token', response.data.token);
+  }
+  return response.data;
 };
 
 export const getUserInfo = async () => {
@@ -24,5 +37,5 @@ export const getUserInfo = async () => {
   const response = await axios.get(`${API_URL}/Auth/GetUserInfo`, {
     headers: token ? { Authorization: `Bearer ${token}` } : {}
   });
-  return response.data; // Повертаємо дані з відповіді
+  return response.data;
 };

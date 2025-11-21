@@ -21,8 +21,13 @@ export default function Register() {
     }
     setLoading(true);
     try {
-      await registerService(username, password, email);
-      navigate('/');
+      const data = await registerService(username, password, email);
+      // Якщо токен не збережено, показати помилку
+      if (!localStorage.getItem('auth_token')) {
+        setError('Register failed');
+      } else {
+        navigate('/');
+      }
     } catch (err) {
       setError(err.message || 'Register failed');
     } finally {

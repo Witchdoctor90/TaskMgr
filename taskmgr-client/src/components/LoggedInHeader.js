@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ReactComponent as Refresh } from '../static/icons/refresh.svg';
 import { ReactComponent as Settings } from '../static/icons/settings.svg';
 import { ReactComponent as UserIcon } from '../static/icons/user.svg';
@@ -54,6 +54,7 @@ const LoggedInHeader = ({ spinning, onSearch, searchResults = [], onSelectTask }
     const iconRef = useRef(null);
     const searchInputRef = useRef(null);
     const dropdownRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getUserInfo().then(u => setUsername(u?.username || ''));
@@ -99,7 +100,7 @@ const LoggedInHeader = ({ spinning, onSearch, searchResults = [], onSelectTask }
 
     const handleSignOut = () => {
         localStorage.removeItem('auth_token');
-        window.location.reload();
+        navigate('/login');
     };
 
     // Показувати дропдаун якщо є пошук, результати і поле в фокусі

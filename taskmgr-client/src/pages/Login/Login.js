@@ -15,8 +15,13 @@ export default function Login() {
     setError('');
     setLoading(true);
     try {
-      await loginService(username, password);
-      navigate('/');
+      const data = await loginService(username, password);
+      // Якщо токен не збережено, показати помилку
+      if (!localStorage.getItem('auth_token')) {
+        setError('Login failed: invalid credentials');
+      } else {
+        navigate('/');
+      }
     } catch (err) {
       setError(err.message || 'Login failed');
     } finally {
