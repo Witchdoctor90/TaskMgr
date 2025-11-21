@@ -16,7 +16,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<ApplicationDbContext>(opts
-            => opts.UseSqlServer(configuration.GetConnectionString("LocalhostConnection")));
+            => opts.UseNpgsql(configuration.GetConnectionString("LocalhostConnection")));
 
         services.AddIdentity<User, IdentityRole<Guid>>(opts =>
             {

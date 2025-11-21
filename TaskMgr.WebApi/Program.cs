@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging.AzureAppServices;
 using TaskMgr.Application;
 using TaskMgr.Application.Mappings;
 using TaskMgr.Infrastructure;
+using TaskMgr.Infrastructure.DB;
 using TaskMgr.WebApi.Interfaces;
 using TaskMgr.WebApi.Mappings;
 using TaskMgr.WebApi.Services;
@@ -71,7 +73,13 @@ public class Program
         app.UseAuthorization();
 
         app.MapControllers();
-
+        
+        using (var scope = app.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            db.Database.Migrate();
+        }
+        
         app.Run();
     }
 }
