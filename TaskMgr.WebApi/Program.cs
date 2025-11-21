@@ -17,6 +17,16 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
         var services = builder.Services;
         
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+        
         builder.Logging.AddAzureWebAppDiagnostics();
 
         builder.Services.Configure<AzureFileLoggerOptions>(options =>
@@ -49,8 +59,9 @@ public class Program
 
 
         var app = builder.Build();
-
+        
         app.UseMiddleware<Middleware.ExceptionHandlingMiddleware>();
+        app.UseCors("AllowAll");
 
         app.UseSwagger();
         app.UseSwaggerUI();
