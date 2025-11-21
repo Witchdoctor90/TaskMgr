@@ -12,7 +12,7 @@ public class TaskEntity : BaseTaskEntity
     {
     }
 
-    public DateTime Deadline { get; set; } = DateTime.Today;
+    public DateTime Deadline { get; set; } = DateTime.UtcNow.AddDays(1);
     public TimeSpan? RemindEvery { get; set; } = null;
     public Guid? RelatedRoutine { get; set; } = null;
     public Guid? RelatedTarget { get; set; } = null;

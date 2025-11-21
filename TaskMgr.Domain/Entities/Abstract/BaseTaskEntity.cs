@@ -14,7 +14,7 @@ public class BaseTaskEntity : BaseEntity
 
     public string Title { get; set; }
     public string Content { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public TaskStatus Status { get; set; } = TaskStatus.Created;
     public Guid UserId { get; set; }
 }
