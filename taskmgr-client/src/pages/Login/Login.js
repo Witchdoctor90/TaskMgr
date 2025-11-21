@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login as loginService } from '../../services/authService';
 import AuthCard from '../../components/AuthCard';
 
 export default function Login() {
@@ -15,7 +14,6 @@ export default function Login() {
     setError('');
     setLoading(true);
     try {
-      const data = await loginService(username, password);
       // Якщо токен не збережено, показати помилку
       if (!localStorage.getItem('auth_token')) {
         setError('Login failed: invalid credentials');

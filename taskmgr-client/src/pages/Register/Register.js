@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { register as registerService } from '../../services/authService';
 import AuthCard from '../../components/AuthCard';
 
 export default function Register() {
@@ -21,7 +20,6 @@ export default function Register() {
     }
     setLoading(true);
     try {
-      const data = await registerService(username, password, email);
       // Якщо токен не збережено, показати помилку
       if (!localStorage.getItem('auth_token')) {
         setError('Register failed');
