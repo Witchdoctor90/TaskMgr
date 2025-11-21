@@ -1,14 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Header from '../../components/header/header'
+
 
 export default function Welcome() {
   return (
-    <div className="hero-section" style={styles.heroSection}>
+    <div>
+    <Header></Header>
+<div className="hero-section" style={styles.heroSection}>
       <div className="hero-text"> 
         <h1 className="hero-title" style={styles.heroTitle}>TaskMgr</h1>
         <p className="hero-text" style={styles.heroText}>Your ultimate task management solution.</p>
       </div>
       <NavLink to="/login" className='get-started-button' style={styles.getStartedButton}>Get Started</NavLink>
+    </div>
     </div>
   );
 }

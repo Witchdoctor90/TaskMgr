@@ -31,50 +31,52 @@ export default function Register() {
   };
 
   return (
-    <AuthCard
-      title="Create account"
-      subtitle="Join TaskMgr — organise your work"
-      footerText="Already have an account?"
-      footerLinkTo="/login"
-      footerLinkText="Sign in"
-    >
-      <form className="auth-form" onSubmit={onSubmit}>
-        <input
-          className="auth-input"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          placeholder="Username"
-        />
-        <input
-          className="auth-input"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="you@example.com"
-        />
-        <input
-          className="auth-input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          placeholder="Create password"
-        />
-        <input
-          className="auth-input"
-          type="password"
-          value={confirm}
-          onChange={(e) => setConfirm(e.target.value)}
-          required
-          placeholder="Repeat password"
-        />
-        {error && <div className="auth-error">{error}</div>}
-        <button className="auth-button" type="submit" disabled={loading}>
-          {loading ? 'Creating…' : 'Create account'}
-        </button>
-      </form>
-    </AuthCard>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <AuthCard
+        title="Create account"
+        subtitle="Join TaskMgr — organise your work"
+        footerText="Already have an account?"
+        footerLinkTo="/login"
+        footerLinkText="Sign in"
+      >
+        <form className="auth-form" onSubmit={onSubmit}>
+          <input
+            className="auth-input"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            placeholder="Username"
+          />
+          <input
+            className="auth-input"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="you@example.com"
+          />
+          <input
+            className="auth-input"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="Create password"
+          />
+          <input
+            className="auth-input"
+            type="password"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+            required
+            placeholder="Repeat password"
+          />
+          {error && <div className="auth-error">{error}</div>}
+          <button className="auth-button" type="submit" disabled={loading}>
+            {loading ? 'Creating…' : 'Create account'}
+          </button>
+        </form>
+      </AuthCard>
+    </div>
   );
 }

@@ -25,36 +25,38 @@ export default function Login() {
   };
 
   return (
-    <AuthCard
-      title="Welcome back"
-      subtitle="Sign in to your TaskMgr account"
-      footerText="New here?"
-      footerLinkTo="/register"
-      footerLinkText="Create an account"
-    >
-      <form className="auth-form" onSubmit={onSubmit}>
-        <input
-          className="auth-input"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          autoComplete="username"
-          placeholder="Username"
-        />
-        <input
-          className="auth-input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          autoComplete="current-password"
-          placeholder="Password"
-        />
-        {error && <div className="auth-error">{error}</div>}
-        <button className="auth-button" type="submit" disabled={loading}>
-          {loading ? 'Signing in…' : 'Sign in'}
-        </button>
-      </form>
-    </AuthCard>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <AuthCard
+        title="Welcome back"
+        subtitle="Sign in to your TaskMgr account"
+        footerText="New here?"
+        footerLinkTo="/register"
+        footerLinkText="Create an account"
+      >
+        <form className="auth-form" onSubmit={onSubmit}>
+          <input
+            className="auth-input"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            autoComplete="username"
+            placeholder="Username"
+          />
+          <input
+            className="auth-input"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            autoComplete="current-password"
+            placeholder="Password"
+          />
+          {error && <div className="auth-error">{error}</div>}
+          <button className="auth-button" type="submit" disabled={loading}>
+            {loading ? 'Signing in…' : 'Sign in'}
+          </button>
+        </form>
+      </AuthCard>
+    </div>
   );
 }
