@@ -48,9 +48,13 @@ export const updateTask = async (task) => {
 
 // Видалити таску
 export const deleteTask = async (id) => {
+  // Сервер очікує FromBody Guid, треба явно передати JSON, а не просто id
   const response = await axios.delete(`${API_URL}/Tasks/Delete`, {
-    data: id,
-    headers: { ...authHeaders() }
+    data: JSON.stringify(id),
+    headers: {
+      ...authHeaders(),
+      'Content-Type': 'application/json'
+    }
   });
   return response.data;
 };

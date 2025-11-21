@@ -20,6 +20,9 @@ export const register = async (username, password, email) => {
 };
 
 export const getUserInfo = async () => {
-  const response = await axios.get(`${API_URL}/Auth/GetUserInfo`);
+  const token = localStorage.getItem('auth_token');
+  const response = await axios.get(`${API_URL}/Auth/GetUserInfo`, {
+    headers: token ? { Authorization: `Bearer ${token}` } : {}
+  });
   return response.data; // Повертаємо дані з відповіді
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoggedInHeader from "../../components/LoggedInHeader";
 import { getAllTasks, updateTask, createTask } from "../../services/tasksService";
+import TaskDetails from "../../components/modal/TaskDetails";
 
 export default function Dashboard() {
   const [tasks, setTasks] = useState([]);
@@ -8,6 +9,8 @@ export default function Dashboard() {
   const [error, setError] = useState("");
   const [newTaskTitle, setNewTaskTitle] = useState('');
   const [creating, setCreating] = useState(false);
+  const [modalTask, setModalTask] = useState(null);
+  const [search, setSearch] = useState('');
 
   const fetchTasks = async () => {
     setLoading(true);
@@ -25,15 +28,6 @@ export default function Dashboard() {
   useEffect(() => {
     fetchTasks();
   }, []);
-
-  const handleMarkDone = async (task) => {
-    try {
-      await updateTask({ ...task, status: 1 });
-      fetchTasks();
-    } catch {
-      alert("Failed to update task");
-    }
-  };
 
   const handleToggleDone = async (task) => {
     try {
@@ -60,7 +54,7 @@ export default function Dashboard() {
     }
   };
 
-  // SVG кружечок (з галочкою якщо виконано)
+  // SVG синій кружечок всередині сірого контуру (outline)
   const CircleButton = ({ done, onClick }) => (
     <button
       onClick={onClick}
@@ -68,31 +62,75 @@ export default function Dashboard() {
       style={{
         width: 28,
         height: 28,
+        border: "2px solid #bbb",
         borderRadius: "50%",
-        border: done ? "2px solid #22c55e" : "2px solid #bbb",
-        background: done ? "#22c55e" : "#fff",
+        background: "#fff",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
-        transition: "background 0.2s, border 0.2s",
         marginLeft: 16,
         outline: "none",
         position: "relative",
+        padding: 0,
       }}
       type="button"
+      tabIndex={-1}
     >
-      {done ? (
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M4 8.5L7 11.5L12 5.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ) : null}
+      {done && (
+        <span
+          style={{
+            display: "block",
+            width: 16,
+            height: 16,
+            borderRadius: "50%",
+            background: "#2563eb",
+            transition: "background 0.2s",
+          }}
+        />
+      )}
     </button>
   );
 
+  // Функція для "розумного" пошуку по назві таски
+  function matchesSearch(title, search) {
+    if (!search) return true;
+    if (!title) return false;
+    const t = title.toLowerCase();
+    const s = search.toLowerCase();
+    if (t.includes(s)) return true;
+    for (let len = Math.min(s.length, t.length); len >= 3; len--) {
+      for (let i = 0; i <= s.length - len; i++) {
+        const sub = s.slice(i, i + len);
+        if (t.includes(sub)) return true;
+      }
+    }
+    return false;
+  }
+
+  // Для дропдауна: максимум 8 тасок, тільки якщо є пошук
+  const searchResults = search
+    ? tasks.filter(task => matchesSearch(task.title, search)).slice(0, 8)
+    : [];
+
   return (
     <div>
-      <LoggedInHeader />
+      <LoggedInHeader
+        spinning={loading}
+        onSearch={setSearch}
+        searchResults={searchResults}
+        onSelectTask={task => setModalTask(task)}
+      />
+      <TaskDetails
+        open={!!modalTask}
+        onClose={(action) => {
+          setModalTask(null);
+          if (action === "updated" || action === "deleted") {
+            fetchTasks();
+          }
+        }}
+        task={modalTask}
+      />
       <div
         style={{
           display: "flex",
@@ -119,7 +157,7 @@ export default function Dashboard() {
           }}
         >
           <h2 style={{ marginBottom: 18 }}>Tasks</h2>
-          {loading && <div>Loading...</div>}
+          {/* {loading && <div>Loading...</div>} */}
           {error && <div style={{ color: "red" }}>{error}</div>}
 
           {/* Інлайн-редактор для створення таски */}
@@ -191,12 +229,17 @@ export default function Dashboard() {
                     border: "1px solid #eee",
                     borderRadius: 8,
                     background: "#fafbfc",
+                    cursor: "pointer"
                   }}
+                  onClick={() => setModalTask(task)}
                 >
                   <span>{task.title || "Untitled"}</span>
                   <CircleButton
                     done={task.status === 1}
-                    onClick={() => handleToggleDone(task)}
+                    onClick={e => {
+                      e.stopPropagation();
+                      handleToggleDone(task);
+                    }}
                   />
                 </div>
               ))}
